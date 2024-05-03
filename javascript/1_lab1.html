@@ -8,8 +8,34 @@
 <body>
     
     <script src="lab1.js"></script>
-    <button id="myButton" onclick="showAge()">Пункт 1</button>
-    <button id="myButton" onclick="showCrows()">Пункт 2</button>
+    <button id="myButton" onclick="showAge()">Задание 1</button>
+    <button id="myButton" onclick="showCrows()">Задание 2</button>
+    <button id="myButton" onclick="showNum()">Задание 3</button>
+    <button id="myButton" onclick="prstNum()">Задание 4</button>
     
+    <button onclick="generateTable()">Задание 5</button>
+  
+    <script>
+      function generateTable() {
+        const animals = ['dog', 'dog', 'dog', 'cat', 'cat'];
+        const rows = prompt('Введите количество строк таблицы:');
+        const table = [];
+  
+        for (let i = 0; i < rows; i++) {
+          const row = [];
+  
+          for (let j = 0; j < 6; j++) {
+            const randomIndex = Math.floor(Math.random() * animals.length);
+            row.push(animals[randomIndex]);
+          }
+  
+          table.push(row);
+        }
+  
+        console.table(table);
+      }
+    </script>
+
+   
 </body>
 </html>
