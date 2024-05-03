@@ -1,5 +1,5 @@
 "use strict";
-
+function showAge() {
 
 let age = prompt("Сколько вам лет?");
 let gender = prompt("Какой у вас пол? (мужской/женский)");
@@ -18,8 +18,9 @@ if (age >= 0 && age <= 17) {
 } else {
   alert("Да кто ты такой?");
 }
+}
 
-
+function showCrows() {
 let num = prompt("Введите целое число:");
 
 
@@ -45,4 +46,5 @@ if (isNaN(num) || num < 1) {
     default:
       alert("На ветке сидит " + num + " ворон");
   }
+}
 }
