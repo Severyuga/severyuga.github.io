@@ -29,12 +29,13 @@ function showCrows() {
   if (isNaN(num) || num < 1) {
     alert("Некорректное значение");
   }
-
+   
   else {
 
     switch (num % 10) {
       case 1:
         endStr = 'a';
+        break;
       case 2:
       case 3:
       case 4:
