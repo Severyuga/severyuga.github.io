@@ -25,8 +25,8 @@
           const row = [];
   
           for (let j = 0; j < 6; j++) {
-            const randomIndex = Math.floor(Math.random() * animals.length);
-            row.push(animals[randomIndex]);
+            const index = (i * 6 + j) % animals.length;
+            row.push(animals[index]);
           }
   
           table.push(row);
