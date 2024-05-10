@@ -55,10 +55,21 @@ function showCrows() {
 function showNum() {
   let userInput;
 
-  while ((userInput = prompt("Введите число, большее 100:")) && parseInt(userInput) <= 100);
+  while (true) {
+    userInput = prompt("Введите число, большее 100:");
 
-  if (userInput) {
-    alert("Спасибо, что ввели числo <3 " + userInput);
+    if (userInput === null) {
+      return;
+    }
+
+    const num = parseInt(userInput);
+
+    if (isNaN(num) || num <= 100) {
+      alert("Пожалуйста, введите корректное числовое значение, большее 100.");
+    } else {
+      alert("Спасибо, что ввели число" + num);
+      break;
+    }
   }
 }
 
