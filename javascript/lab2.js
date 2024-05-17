@@ -25,3 +25,36 @@ function isLeapYear(year) {
         throw new Error("year должно быть целым числом.");
     }
 }
+
+function factorial(n) {
+    if (typeof n === 'number' && Number.isInteger(n) && n >= 0) {
+        if (n === 0 || n === 1) {
+            return BigInt(1);
+        } else {
+            return BigInt(n) * factorial(n - 1);
+        }
+    } else {
+        throw new Error("n должно быть целым неотрицательным числом.");
+    }
+}
+
+function fib(n) {
+    if (typeof n === 'number' && Number.isInteger(n) && n >= 0) {
+        if (n === 0) {
+            return BigInt(0);
+        } else if (n === 1) {
+            return BigInt(1);
+        } else {
+            let a = BigInt(0);
+            let b = BigInt(1);
+
+            for (let i = 2; i <= n; i++) {
+                let c = a + b;
+                a = b;
+                b = c;
+            }
+
+            return b;
+        }
+    }
+}
