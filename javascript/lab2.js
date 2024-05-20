@@ -58,3 +58,51 @@ function fib(n) {
         }
     }
 }
+
+function compare(x) {
+    if (typeof x !== 'number' || !Number.isInteger(x)) {
+      throw new Error('x должно быть целым числом');
+    }
+  
+    return function(y) {
+      if (typeof y !== 'number' || !Number.isInteger(y)) {
+        throw new Error('y должно быть целым числом');
+      }
+  
+      if (y > x) {
+        return true;
+      } else if (y < x) {
+        return false;
+      } else {
+        return null;
+      }
+    };
+  }
+
+  function sum(...args) {
+    let result = 0;
+  
+    for (let arg of args) {
+      if (typeof arg !== 'number' || !Number.isFinite(arg)) {
+        throw new Error('Все аргументы должны быть конечными числами');
+      }
+  
+      result += arg;
+    }
+  
+    return result;
+  }
+
+  function addBlackSpot(obj) {
+    if (typeof obj !== 'object' || obj === null) {
+      throw new Error('obj должен быть объектом');
+    }
+  
+    if (!obj.hasOwnProperty(Symbol.for('blackSpot'))) {
+      obj[Symbol.for('blackSpot')] = true;
+    }
+  
+    return obj;
+  }
+
+  
