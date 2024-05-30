@@ -129,6 +129,16 @@
 
         });
 
+        describe("addBlackSpot", function () {
+            
+            it("addBlackSpot({}) => {[Symbol.for('blackSpot')]: true}", function() {
+                const obj = {};
+                addBlackSpot(obj);
+                expect(obj).to.have.property(Symbol.for('blackSpot'));
+                expect(obj[Symbol.for('blackSpot')]).to.be.true;
+            });
+        })
+
     </script>
 
     <!-- элемент с id="mocha" будет содержать результаты тестов -->
