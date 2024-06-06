@@ -1,88 +1,59 @@
-export function getDecimal(num) {
-    if (typeof num !== 'number' || !Number.isFinite(num)) {
-      throw new Error('num должен быть конечным числом');
-    }
-  
-    let decimal = Math.abs(num) % 1;
-  
-    if (num < 0) {
-      decimal = 1 - decimal;
-    }
-  
-    return decimal;
-  }
+import { fib } from "./lab3_1.js";
 
-  export function normalizeUrl(url) {
-    if (typeof url !== 'string') {
-      throw new Error('url должен быть строкой');
-    }
-  
-    if (!url.startsWith('http://') && !url.startsWith('https://')) {
-      url = 'https://' + url;
-    }
-  
-    return url;
-  }
+
+export function getDecimal(num){
+    let cringe = num - Math.floor(num)
+    return cringe ? Number(cringe.toFixed(num.toString().split('.').pop().length)) : 0}
+
+
+
+export function normalizeUrl(url){
+    const f = /http:\/\/|https:\/\//.test(url)
+    if (f) return url.replace('http://', 'https://')
+    return "https://"+url
+}
+
+
+
+
  
+export function checkSpam(str){
+    let lowStr = str.toLowerCase()
+    return /xxx|viagra/.test(lowStr)
+}
 
-  function checkSpam(str) {
-    if (typeof str !== 'string') {
-      throw new Error('str должен быть строкой');
-    }
-  
-    const lowerStr = str.toLowerCase();
-    return lowerStr.includes('viagra') || lowerStr.includes('xxx');
-  }
 
-  function checkSpam(str) {
-    if (typeof str !== 'string') {
-      throw new Error('str должен быть строкой');
-    }
-  
-    const lowerStr = str.toLowerCase();
-    return lowerStr.includes('viagra') || lowerStr.includes('xxx');
-  }
 
-  function truncate(str, maxlength) {
-    if (typeof str !== 'string') {
-      throw new Error('str должен быть строкой');
-    }
-  
-    if (typeof maxlength !== 'number' || maxlength < 1) {
-      throw new Error('maxlength должен быть положительным числом');
-    }
-  
-    if (str.length <= maxlength) {
-      return str;
-    }
-  
-    const truncatedStr = str.slice(0, maxlength - 1) + '\u2026';
-    return truncatedStr;
-  }
+export function truncate(str, maxlength){
+    let s = str.slice(maxlength-1)
+    if (s) return str.replace(s, "\u2026")
+    return str
+}
 
-  function ucFirst(str) {
-    if (typeof str !== 'string') {
-      throw new Error('str должен быть строкой');
-    }
-  
-    if (str.length === 0) {
-      return '';
-    }
-  
-    const firstChar = str.charAt(0).toUpperCase();
-    const restChars = str.slice(1);
-    return firstChar + restChars;
-  }
-  
-  function camelize(str) {
-    if (typeof str !== 'string') {
-      throw new Error('str должен быть строкой');
-    }
-  
-    const words = str.split('-');
-    const camelizedWords = [words[0]].concat(words.slice(1).map(ucFirst));
-    const camelizedStr = camelizedWords.join('');
-    return camelizedStr;
-  }
 
+export function camelize(str){
+    let words = str.split("-")
+    let newStr = words.shift()
+    for(let word of words) newStr += (word.charAt(0).toUpperCase() + word.slice(1))
+    return newStr
+}
+
+
+export function fibs(n){
+    let l = []
+    for(let i=0; i < n; i++) l.push(fib(i))
+    return l
+}
+
+
+export function arrReverseSorted(arr){
+    let l = arr.toSorted((a, b) => b-a)
+    const arrForCopy = arr.slice();
+    arrForCopy.sort((a, b) => b-a);
+    return arrForCopy;
+}
+
+
+
+export function unique(arr){return Array.from(new Set(arr))}
   
