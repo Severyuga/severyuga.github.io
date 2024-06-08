@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Text</title>
+</head>
+<body>
+	<button id="toggleButton" onclick="toggleText()">Спрятать текст</button>
+    <div id="text">Текст</div>
+
+	<script>
+        function toggleText() {
+            var textElement = document.getElementById("text");
+            var button = document.getElementById("toggleButton");
+
+            if (textElement.style.display === "none") {
+                textElement.style.display = "block";
+                button.textContent = "Спрятать текст";
+            } else {
+                textElement.style.display = "none";
+                button.textContent = "Показать текст";
+            }
+        }
+	</script>
+</body>
+</html>
