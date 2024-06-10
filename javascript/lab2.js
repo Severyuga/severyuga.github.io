@@ -1,3 +1,9 @@
+/**
+ * 1. Возвращает x, возведенное в n-ную степень.
+ * @param {number} x Возводимое в степень число
+ * @param {number} n Степень, натуральное число
+ * @returns {number} Результат
+ */
 function pow(x, n) {
     if (typeof n === 'number' && typeof x === 'number' && Number.isInteger(n)) {
         return Math.pow(x, n);
@@ -6,6 +12,12 @@ function pow(x, n) {
     }
 }
 
+//-------------------------------------------------------------------
+/**
+ * 2. Считаем сумму чисел до n включительно.
+ * @param {number} n Число до которого считаем сумму
+ * @returns {number} 
+ */
 function sumTo(n) {
     if (typeof n === 'number' && Number.isInteger(n) && n > 0) {
         let sum = 0;
@@ -18,6 +30,12 @@ function sumTo(n) {
     }
 }
 
+//-------------------------------------------------------------------
+/**
+ * 3. Проверяет является ли год высокостным
+ * @param {number} year
+ * @returns {boolean} Вывод: Да/Нет
+ */
 function isLeapYear(year) {
     if (typeof year === 'number' && Number.isInteger(year)) {
         return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
@@ -26,6 +44,12 @@ function isLeapYear(year) {
     }
 }
 
+//-------------------------------------------------------------------
+/**
+ * 4. Считает факториал числа n
+ * @param {number} n 
+ * @returns {bigint} Факториал числа n в формате BigInt
+ */
 function factorial(n) {
     if (typeof n === 'number' && Number.isInteger(n) && n >= 0) {
         if (n === 0 || n === 1) {
@@ -38,6 +62,13 @@ function factorial(n) {
     }
 }
 
+
+//-------------------------------------------------------------------
+/**
+ * 5. Считает n-ное число Фибоначчи
+ * @param {number} n Порядковый номер числа 
+ * @returns {bigint}  n-е число Фибоначчи
+ */
 function fib(n) {
     if (typeof n === 'number' && Number.isInteger(n) && n >= 0) {
         if (n === 0) {
@@ -59,6 +90,14 @@ function fib(n) {
     }
 }
 
+//-------------------------------------------------------------------
+/**
+ * 6. Проверяет, больше ли y, чем x
+ * Если равны, возвращает null
+ * @param {number} x
+ * @param {number} y
+ * @returns
+ */
 function compare(x) {
     if (typeof x !== 'number' || !Number.isInteger(x)) {
       throw new Error('x должно быть целым числом');
@@ -79,6 +118,12 @@ function compare(x) {
     };
   }
 
+  //-------------------------------------------------------------------
+/**
+ * 7. Считает сумму заданных чисел
+ * @param  {...number} args Набор чисел
+ * @returns {number} Сумма 
+ */
   function sum(...args) {
     let result = 0;
   
@@ -93,6 +138,12 @@ function compare(x) {
     return result;
   }
 
+  //-------------------------------------------------------------------
+/**
+ * 8.Добавляет свойство "blackSpot" к объекту, используя уникальный символ
+ * @param {object} obj объект, к которому нужно добавить свойство
+ * @return Исходный объект с добавленным свойством "blackSpot"
+ */
   function addBlackSpot(obj) {
     if (typeof obj !== 'object' || obj === null) {
       throw new Error('obj должен быть объектом');
